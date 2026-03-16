@@ -1,0 +1,39 @@
+name: 'Snipe PR — AI PR Descriptions'
+author: 'SnipeLink LLC'
+description: 'Auto-generates smart PR descriptions from your diffs. Free tier included, AI-powered with SnipeLink Pro.'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access (usually secrets.GITHUB_TOKEN)'
+    required: true
+    default: ${{ github.token }}
+  snipelink-key:
+    description: 'SnipeLink API key for AI-powered descriptions (optional, get one at snipelink.com)'
+    required: false
+    default: ''
+  mode:
+    description: 'Output mode: "comment" posts a PR comment, "body" updates the PR body'
+    required: false
+    default: 'comment'
+  include-stats:
+    description: 'Include file change statistics'
+    required: false
+    default: 'true'
+  max-diff-size:
+    description: 'Max diff characters to analyze (larger = more detail)'
+    required: false
+    default: '10000'
+
+outputs:
+  description:
+    description: 'The generated PR description'
+  comment-id:
+    description: 'ID of the posted comment (if mode=comment)'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'zap'
+  color: 'green'

@@ -1,0 +1,24 @@
+{
+  "name": "snipe-pr",
+  "version": "1.0.0",
+  "description": "AI-powered PR descriptions that write themselves",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && ncc build lib/index.js -o dist",
+    "test": "jest",
+    "all": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vercel/ncc": "^0.38.3",
+    "typescript": "^5.7.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.2.0"
+  },
+  "license": "MIT"
+}
